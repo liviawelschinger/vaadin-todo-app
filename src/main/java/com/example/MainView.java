@@ -2,6 +2,7 @@ package com.example;
 
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -45,8 +46,9 @@ public class MainView extends VerticalLayout {
         VerticalLayout todosList = new VerticalLayout(); // vertical layout that displays the task and checkboxes
         TextField taskfield = new TextField(); // text input field for new tasks
         Button addButton = new Button("Add"); // triggers logic to add new todo items
+        addButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         addButton.addClickShortcut(Key.ENTER);
-       addButton.addClickListener(click -> {
+        addButton.addClickListener(click -> {
            Checkbox checkbox = new Checkbox(taskfield.getValue());
            todosList.add(checkbox);
         });
